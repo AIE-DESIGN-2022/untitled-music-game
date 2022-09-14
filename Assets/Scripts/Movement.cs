@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float dashResetTime = .3f;
     bool isDashing = false;
     bool canDash = true;
+    float dashResetTimer = 0;
     
     float gravScale = 1;
     Vector3 gravDir;
@@ -48,45 +49,19 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        grounded = Physics2D.OverlapCircle(transform.position + (Vector3)gcOffset, gcRad, ground);
-        if (canMove) { inputDir = Input.GetAxisRaw("Horizontal") * moveForce; }
-        else inputDir = 0;
-        Vector2 wcOffsetLeft = wcOffset;
-        wcOffsetLeft.x = -wcOffsetLeft.x;
-
-        //Check Grounding
-        if(Physics2D.OverlapBox(transform.position + (Vector3)wcOffset, wcSize, 0, ground))
-        {
-            onWall = 1;
-        }
-        else if(Physics2D.OverlapBox(transform.position + (Vector3)wcOffsetLeft, wcSize, 0, ground))
-        {
-            onWall = -1;
-        }
-        else
-        {
-            onWall = 0;
-        }
+       CheckGrounding();
         if(onWall != 0)
         {
             gravScale = .2f;
         }
 
-        //Get Input
-        if (Input.GetKeyDown(KeyCode.Space)) { shouldJump = true; StartCoroutine("CancelJump"); }
-       
-        if (!grounded && Input.GetKey(KeyCode.Space) && rb.velocity.y > 0)
+        if(dashResetTimer > dashResetTime && grounded)
         {
-            gravScale = .2f;
+            canDash = true;
+
         }
-        else if(onWall == 0)
-        {
-            gravScale = 1;
-        }
-        if (grounded)
-        {
-            jumpsLeft = 2;
-        }
+        GetInputs();
+        dashResetTimer += Time.deltaTime;
     }
     private void FixedUpdate()
     {
@@ -136,7 +111,61 @@ public class Movement : MonoBehaviour
         
         
     }
-    void Dash()
+
+    void CheckGrounding()
+    {
+        grounded = Physics2D.OverlapCircle(transform.position + (Vector3)gcOffset, gcRad, ground);
+        if (canMove) { inputDir = Input.GetAxisRaw("Horizontal") * moveForce; }
+        else inputDir = 0;
+        Vector2 wcOffsetLeft = wcOffset;
+        wcOffsetLeft.x = -wcOffsetLeft.x;
+
+        //Check Grounding
+        if (Physics2D.OverlapBox(transform.position + (Vector3)wcOffset, wcSize, 0, ground))
+        {
+            onWall = 1;
+        }
+        else if (Physics2D.OverlapBox(transform.position + (Vector3)wcOffsetLeft, wcSize, 0, ground))
+        {
+            onWall = -1;
+        }
+        else
+        {
+            onWall = 0;
+        }
+    }
+
+    void GetInputs()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) { shouldJump = true; StartCoroutine("CancelJump"); }
+
+        if (!grounded && Input.GetKey(KeyCode.Space) && rb.velocity.y > 0)
+        {
+            gravScale = .2f;
+        }
+        else if (onWall == 0)
+        {
+            gravScale = 1;
+        }
+        if (grounded)
+        {
+            jumpsLeft = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+
+            if (Dash())
+            {
+                canDash = false;
+                dashResetTimer = 0;
+            }
+                
+        }
+    }
+
+
+
+    bool Dash()
     {
         if(inputDir != 0)
         {
@@ -145,7 +174,9 @@ public class Movement : MonoBehaviour
             rb.AddForce(Vector2.right * dashForce * inputDir);
             StartCoroutine("DashIE");
             StartCoroutine("LockMovement", dashTimer);
+            return true;
         }
+        return false;
     }
 
     void ApplyGravity(float Scale)
