@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
     [SerializeField] Vector2 gcSize;
     public bool grounded = true;
     bool shouldJump = false;
+    int jumpsLeft = 2;
     Rigidbody2D rb;
     float inputDir;
     private void Start()
@@ -27,10 +28,22 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        grounded = Physics2D.OverlapBox(transform.position + (Vector3)gcOffset, gcSize, 0, ground);
         inputDir = Input.GetAxisRaw("Horizontal") * moveForce;
         if (Input.GetKeyDown(KeyCode.Space)) { shouldJump = true; StartCoroutine("CancelJump"); }
-        grounded = Physics2D.OverlapBox(transform.position + (Vector3)gcOffset, gcSize,0,ground);
-
+       
+        if (!grounded && Input.GetKey(KeyCode.Space) && rb.velocity.y > 0)
+        {
+            rb.gravityScale = .2f;
+        }
+        else
+        {
+            rb.gravityScale = 1;
+        }
+        if (grounded)
+        {
+            jumpsLeft = 2;
+        }
     }
     private void FixedUpdate()
     {
@@ -50,12 +63,18 @@ public class Movement : MonoBehaviour
         {
            ApplyCounterForce();
         }
-        if(grounded && shouldJump)
+        if(jumpsLeft > 0 && shouldJump)
         {
-            rb.AddForce(Vector2.up * jumpForce);
+            
             shouldJump = false;
             StopCoroutine("CancelJump");
+            jumpsLeft--;
+            Vector2 vel = rb.velocity;
+            vel.y = 0;
+            rb.velocity = vel;
+            rb.AddForce(Vector2.up * jumpForce);
         }
+        
     }
     void ApplyCounterForce()
     {
