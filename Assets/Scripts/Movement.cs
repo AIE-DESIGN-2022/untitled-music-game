@@ -26,7 +26,15 @@ public class Movement : MonoBehaviour
     [SerializeField] Vector2 wcOffset;
     [SerializeField] Vector2 wcSize;
     [SerializeField] float wallJumpPauseTime = .1f;
+    [SerializeField] float wallJumpForce;
     int onWall;
+    
+    [Header("Dashing")]
+    [SerializeField] float dashForce = 1;
+    [SerializeField] float dashTimer = .1f;
+    [SerializeField] float dashResetTime = .3f;
+    bool isDashing = false;
+    bool canDash = true;
     
     float gravScale = 1;
     Vector3 gravDir;
@@ -45,6 +53,8 @@ public class Movement : MonoBehaviour
         else inputDir = 0;
         Vector2 wcOffsetLeft = wcOffset;
         wcOffsetLeft.x = -wcOffsetLeft.x;
+
+        //Check Grounding
         if(Physics2D.OverlapBox(transform.position + (Vector3)wcOffset, wcSize, 0, ground))
         {
             onWall = 1;
@@ -59,16 +69,17 @@ public class Movement : MonoBehaviour
         }
         if(onWall != 0)
         {
-            
+            gravScale = .2f;
         }
 
+        //Get Input
         if (Input.GetKeyDown(KeyCode.Space)) { shouldJump = true; StartCoroutine("CancelJump"); }
        
         if (!grounded && Input.GetKey(KeyCode.Space) && rb.velocity.y > 0)
         {
             gravScale = .2f;
         }
-        else
+        else if(onWall == 0)
         {
             gravScale = 1;
         }
@@ -79,7 +90,7 @@ public class Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!grounded)
+        if (!grounded && !isDashing)
         {
             ApplyGravity(gravScale);
         }
@@ -103,6 +114,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            if(!isDashing)
            ApplyCounterForce();
         }
         if(onWall != 0&& shouldJump)
@@ -111,7 +123,7 @@ public class Movement : MonoBehaviour
             shouldJump = false;
             jumpsLeft = 1;
             StopCoroutine("CancelJump");
-            Jump(Vector2.up + (Vector2.right * -onWall));
+            Jump(Vector2.up*jumpForce + (Vector2.right * -onWall)*wallJumpForce);
         }
         if(jumpsLeft > 0 && shouldJump)
         {
@@ -119,11 +131,23 @@ public class Movement : MonoBehaviour
             shouldJump = false;
             StopCoroutine("CancelJump");
             jumpsLeft--;
-            Jump(Vector2.up);
+            Jump(Vector2.up*jumpForce);
         }
         
         
     }
+    void Dash()
+    {
+        if(inputDir != 0)
+        {
+            Vector2 vel = rb.velocity;
+            vel.y = 0;
+            rb.AddForce(Vector2.right * dashForce * inputDir);
+            StartCoroutine("DashIE");
+            StartCoroutine("LockMovement", dashTimer);
+        }
+    }
+
     void ApplyGravity(float Scale)
     {
         rb.AddForce(gravDir * Scale);
@@ -140,7 +164,7 @@ public class Movement : MonoBehaviour
         Vector2 vel = rb.velocity;
         vel.y = 0;
         rb.velocity = vel;
-        rb.AddForce(dir * jumpForce);
+        rb.AddForce(dir);
     }
     IEnumerator CancelJump()
     {
@@ -162,5 +186,12 @@ public class Movement : MonoBehaviour
         canMove = false;
         yield return new WaitForSeconds(time);
         canMove = true;
+    }
+    IEnumerator DashIE()
+    {
+        isDashing = true;
+        //disabe damage taking
+        yield return new WaitForSeconds(dashTimer);
+        isDashing=false;
     }
 }
