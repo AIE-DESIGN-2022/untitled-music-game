@@ -564,7 +564,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 100
   halfBeat: 0
-  objectToToggle: {fileID: 1296463303}
 --- !u!4 &2082537647
 Transform:
   m_ObjectHideFlags: 0
@@ -634,12 +633,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7870955074939737710, guid: 3b5456f414af8cb40be1ed27ad0686bc, type: 3}
+      propertyPath: wcSize.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870955074939737710, guid: 3b5456f414af8cb40be1ed27ad0686bc, type: 3}
       propertyPath: wcOffset.x
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7870955074939737710, guid: 3b5456f414af8cb40be1ed27ad0686bc, type: 3}
       propertyPath: wallJumpPauseTime
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7870955074939737711, guid: 3b5456f414af8cb40be1ed27ad0686bc, type: 3}
       propertyPath: m_Name
