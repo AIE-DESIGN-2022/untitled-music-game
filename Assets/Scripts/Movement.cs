@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     [Header("GroundChecking")]
     [SerializeField] LayerMask ground;
     [SerializeField] Vector2 gcOffset;
-    [SerializeField] Vector2 gcSize;
+    [SerializeField] float gcRad;
     public bool grounded = true;
     
     float gravScale = 1;
@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        grounded = Physics2D.OverlapBox(transform.position + (Vector3)gcOffset, gcSize, 0, ground);
+        grounded = Physics2D.OverlapCircle(transform.position + (Vector3)gcOffset, gcRad, ground);
         inputDir = Input.GetAxisRaw("Horizontal") * moveForce;
         if (Input.GetKeyDown(KeyCode.Space)) { shouldJump = true; StartCoroutine("CancelJump"); }
        
@@ -113,7 +113,7 @@ public class Movement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position + (Vector3)gcOffset, (Vector3)gcSize);
+        Gizmos.DrawWireSphere(transform.position + (Vector3)gcOffset, gcRad);
     }
 
 }
