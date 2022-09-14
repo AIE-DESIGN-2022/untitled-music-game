@@ -9,7 +9,7 @@ public class TogglePlatform : MonoBehaviour
     public bool halfBeat = false;
     float maxTime = 0;
     float timer;
-    [SerializeField] GameObject objectToToggle;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +32,9 @@ public class TogglePlatform : MonoBehaviour
     }
     void Toggle()
     {
-        objectToToggle.SetActive(!objectToToggle.activeSelf);
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(transform.GetChild(i).gameObject.activeSelf);
+        }
     }
 }
