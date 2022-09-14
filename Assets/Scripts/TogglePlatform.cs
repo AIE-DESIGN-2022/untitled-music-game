@@ -34,7 +34,7 @@ public class TogglePlatform : MonoBehaviour
     {
         for(int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).gameObject.SetActive(transform.GetChild(i).gameObject.activeSelf);
+            transform.GetChild(i).gameObject.SetActive(!transform.GetChild(i).gameObject.activeSelf);
         }
     }
 }

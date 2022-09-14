@@ -57,7 +57,10 @@ public class Movement : MonoBehaviour
         {
             onWall = 0;
         }
-
+        if(onWall != 0)
+        {
+            
+        }
 
         if (Input.GetKeyDown(KeyCode.Space)) { shouldJump = true; StartCoroutine("CancelJump"); }
        
