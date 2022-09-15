@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fb98731c79dde45979e1c740af8c97, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: 
-  bulletPrefabs: []
-  ammo: 0
+  bulletPrefabs:
+  - {fileID: 7657145536228243212, guid: fdf4b4bfb055745419929423ee9da5c5, type: 3}
+  spread: 0.66
+  bulletsToSpawn: 10
+  ammo: 100
   model: {fileID: 0}
+  beatPerShot: 1
+  beatPerReload: 0
+  auto: 1
+  bulletSpeed: 40
