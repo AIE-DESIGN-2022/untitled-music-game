@@ -6,13 +6,15 @@ using UnityEngine;
 public class Gun : ScriptableObject
 {
     public GameObject[] bulletPrefabs;
-    public float damage;
-    public float spread;
-    public int bulletsToSpawn;
-    public int ammo;
+    public float damage = 50;
+    public float spread = .1f;
+    public int bulletsToSpawn = 1;
+    public int ammo = 1;
     public Sprite model;
-    public int beatPerShot;
-    public int beatPerReload;
+    public int beatPerShot = 1;
+    public int beatPerReload = 1;
     public bool auto = false;
-    public float bulletSpeed;
+    public float bulletSpeed = 50;
+    public Vector2 modelOffset;
+    public float barrelOffset = 0.1f; 
 }
