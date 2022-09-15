@@ -36,7 +36,9 @@ public class Movement : MonoBehaviour
     bool isDashing = false;
     bool canDash = true;
     float dashResetTimer = 0;
-    
+
+    [Header("Damage Knockback")]
+    [SerializeField] float dmgKB;
     float gravScale = 1;
     Vector3 gravDir;
     Rigidbody2D rb;
@@ -111,7 +113,12 @@ public class Movement : MonoBehaviour
         
         
     }
-
+    public void OnHit(float duration,Vector2 dir)
+    {
+        StopCoroutine("LockMovement");
+        StartCoroutine("LockMovement",duration);
+        rb.AddForce(((Vector2)transform.position - dir).normalized*dmgKB);
+    }
     void CheckGrounding()
     {
         grounded = Physics2D.OverlapCircle(transform.position + (Vector3)gcOffset, gcRad, ground);

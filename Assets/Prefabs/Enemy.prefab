@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6470849587970103645}
   - component: {fileID: 5152699243060733161}
   - component: {fileID: 6470849587970103618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -129,6 +129,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  checkOffset: {x: 0.7, y: -1, z: 0}
+  checkRad: 0.2
+  ground:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &5152699243060733161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,13 +146,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61b9132ad93c854494f14e95a23542a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageSound: {fileID: 0}
   OnDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHitEvent:
     m_PersistentCalls:
       m_Calls: []
   health: 100
   maxHealth: 100
   canTakeDmg: 1
   destroyOnDeath: 1
+  lastHitFrom: {x: 0, y: 0}
+  iFrameDuration: 0
 --- !u!50 &6470849587970103618
 Rigidbody2D:
   serializedVersion: 4
