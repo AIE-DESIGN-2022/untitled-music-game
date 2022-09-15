@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97fb98731c79dde45979e1c740af8c97, type: 3}
-  m_Name: Revolver
+  m_Name: TestingGun
   m_EditorClassIdentifier: 
   bulletPrefabs:
   - {fileID: 7657145536228243212, guid: fdf4b4bfb055745419929423ee9da5c5, type: 3}
   damage: 50
-  spread: 0.01
-  bulletsToSpawn: 1
-  ammo: 6
-  model: {fileID: 21300000, guid: 063a294add6c2e142a734edc680cb012, type: 3}
-  beatPerShot: 2
-  beatPerReload: 2
+  spread: 0.1
+  bulletsToSpawn: 10
+  ammo: 128
+  model: {fileID: 21300000, guid: 530a21ae60987844a93f6f9514c63242, type: 3}
+  beatPerShot: 1
+  beatPerReload: 1
   auto: 0
   bulletSpeed: 50
-  modelOffset: {x: 0.37, y: -0.12}
-  barrelOffset: 0.1
-  fireSound: {fileID: 8300000, guid: 4f7ee348d2de92b47b20162d730befa3, type: 3}
-  noAmmo: {fileID: 8300000, guid: 971839bad1e42e943a41a180710d2314, type: 3}
-  reload: {fileID: 8300000, guid: 5da39b1bd3f248b46821815eae68c4ad, type: 3}
+  modelOffset: {x: 0.3, y: -0.06}
+  barrelOffset: 0.9
+  fireSound: {fileID: 0}
+  noAmmo: {fileID: 0}
+  reload: {fileID: 0}

@@ -16,5 +16,9 @@ public class Gun : ScriptableObject
     public bool auto = false;
     public float bulletSpeed = 50;
     public Vector2 modelOffset;
-    public float barrelOffset = 0.1f; 
+    public float barrelOffset = 0.1f;
+
+    public AudioClip fireSound;
+    public AudioClip noAmmo;
+    public AudioClip reload;
 }
