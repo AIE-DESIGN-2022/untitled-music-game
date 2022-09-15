@@ -12,14 +12,16 @@ public class Health : MonoBehaviour
     [SerializeField] float maxHealth = 100;
     public bool canTakeDmg = true;
     [SerializeField] bool destroyOnDeath = true;
-    public Vector3 lastHitFrom;
+    public Vector2 lastHitFrom;
+    [SerializeField] float iFrameDuration;
     private void Start()
     {
         
         health = maxHealth;
     }
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage,Vector2 damageOrigin)
     {
+        lastHitFrom = damageOrigin;
         OnHitEvent.Invoke();
         if(damageSound)
         damageSound.Play();
@@ -28,7 +30,26 @@ public class Health : MonoBehaviour
         {
             OnDeath();
         }
+        if(iFrameDuration > 0)
+        {
+            GetIFrames();
+        }
         
+    }
+
+    void GetIFrames()
+    {
+        PauseDmg(iFrameDuration);
+        if (GetComponent<Movement>())
+        {
+            GetComponent<Movement>().OnHit(iFrameDuration, lastHitFrom);
+        }
+    }
+    IEnumerator PauseDmg(float time)
+    {
+        canTakeDmg = false;
+        yield return new WaitForSeconds(iFrameDuration);
+        canTakeDmg = true;
     }
 
     public void OnDeath()
