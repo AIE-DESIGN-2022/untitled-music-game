@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     public UnityEvent OnDeathEvent;
     public UnityEvent OnHitEvent;
     public float health = 100;
-    [SerializeField] float maxHealth = 100;
+    public float maxHealth = 100;
     public bool canTakeDmg = true;
     [SerializeField] bool destroyOnDeath = true;
     public Vector2 lastHitFrom;
