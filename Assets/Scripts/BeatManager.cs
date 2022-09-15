@@ -8,18 +8,17 @@ public class BeatManager : MonoBehaviour
     AudioSource sound;
     public bool play = true;
     public float bpm;
-    public bool halfBeat = false;
+    public static bool halfBeatFrame = false;
     float maxTime = 0;
+    bool usedHBeat = false;
     float timer;
     // Start is called before the first frame update
     void Start()
     {
         maxTime = bpm / 60;
-        if (halfBeat)
-        {
-            maxTime = maxTime / 2;
-        }
+        
         maxTime = 1 / maxTime;
+        
     }
 
     public void Pause()
@@ -41,8 +40,15 @@ public class BeatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer > maxTime)
+        if(timer > maxTime / 2 && !usedHBeat)
         {
+            halfBeatFrame = true;
+            usedHBeat = true;
+        }
+        if (timer > maxTime)
+        {   
+            usedHBeat = false;
+            halfBeatFrame = true;
             beatFrame = true;
             timer = 0;
         }
