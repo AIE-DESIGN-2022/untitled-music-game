@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class BeatManager : MonoBehaviour
 {
     public static bool beatFrame = false;
+    AudioSource sound;
     public bool play = true;
     public float bpm;
     public bool halfBeat = false;
@@ -20,6 +21,22 @@ public class BeatManager : MonoBehaviour
         }
         maxTime = 1 / maxTime;
     }
+
+    public void Pause()
+    {
+        if (play)
+        {
+            sound.Pause();
+            play = false;
+        }
+        else
+        {
+            sound.UnPause();
+            play = true;
+        }
+        
+    }
+
 
     // Update is called once per frame
     void Update()
