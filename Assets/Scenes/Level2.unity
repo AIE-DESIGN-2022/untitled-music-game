@@ -3716,10 +3716,10 @@ PrefabInstance:
     - target: {fileID: 1935545557, guid: ed66eb872a35e9447937ae44e37fc785, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 81e75113fdd8199429a9704580932048, type: 3}
+      objectReference: {fileID: 8300000, guid: 9c9c2bb060de5a744b598a5ee660706a, type: 3}
     - target: {fileID: 321620986016003259, guid: ed66eb872a35e9447937ae44e37fc785, type: 3}
       propertyPath: bpm
-      value: 125
+      value: 106
       objectReference: {fileID: 0}
     - target: {fileID: 4991927473043090481, guid: ed66eb872a35e9447937ae44e37fc785, type: 3}
       propertyPath: m_RootOrder
