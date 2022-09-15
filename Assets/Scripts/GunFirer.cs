@@ -54,6 +54,7 @@ public class GunFirer : MonoBehaviour
             bulletGo.transform.position = transform.position;
             bulletGo.transform.right = playerToMouse;
             bulletGo.GetComponent<Rigidbody2D>().velocity = playerToMouse * gun.bulletSpeed;
+            bulletGo.GetComponent<Bullet>().damage = gun.damage;
         }
         
 

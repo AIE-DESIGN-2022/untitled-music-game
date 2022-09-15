@@ -6,6 +6,7 @@ using UnityEngine;
 public class Gun : ScriptableObject
 {
     public GameObject[] bulletPrefabs;
+    public float damage;
     public float spread;
     public int bulletsToSpawn;
     public int ammo;
