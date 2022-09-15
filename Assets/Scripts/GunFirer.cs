@@ -46,6 +46,7 @@ public class GunFirer : MonoBehaviour
         ammo--;
         beatTimer = 0;
         Vector2 playerToMouse = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+        playerToMouse.Normalize();
         for (int i = 0; i< gun.bulletsToSpawn; i++)
         {
             Vector2 updatedVect = playerToMouse + RandVect() * gun.spread;
@@ -54,7 +55,7 @@ public class GunFirer : MonoBehaviour
             GameObject bulletGo = Instantiate(gun.bulletPrefabs[Random.Range(0, gun.bulletPrefabs.Length)]);
             bulletGo.transform.position = transform.position;
             bulletGo.transform.right = playerToMouse;
-            bulletGo.GetComponent<Rigidbody2D>().velocity = playerToMouse * gun.bulletSpeed;
+            bulletGo.GetComponent<Rigidbody2D>().velocity = updatedVect * gun.bulletSpeed;
             bulletGo.GetComponent<Bullet>().damage = gun.damage;
         }
         
