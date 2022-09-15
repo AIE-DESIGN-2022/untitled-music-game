@@ -14,15 +14,19 @@ public class GunFirer : MonoBehaviour
     public Gun gun;
     [SerializeField]int beatTimer = 0;
     [SerializeField] int ammo = 0;
+    [SerializeField]SpriteRenderer renderer;
     bool reloading;
     void Start()
     {
+       
         LoadGun(gun);
     }
 
     // Update is called once per frame
     void Update()
     {
+       
+        rotateModel();
         if (Input.GetMouseButtonDown(0) && ammo > 0 && beatTimer >= gun.beatPerShot)
         {
             nextAction = Actions.Shoot;
@@ -46,19 +50,35 @@ public class GunFirer : MonoBehaviour
         ammo--;
         beatTimer = 0;
         Vector2 playerToMouse = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+        playerToMouse.Normalize();
         for (int i = 0; i< gun.bulletsToSpawn; i++)
         {
             Vector2 updatedVect = playerToMouse + RandVect() * gun.spread;
 
             updatedVect.Normalize();
             GameObject bulletGo = Instantiate(gun.bulletPrefabs[Random.Range(0, gun.bulletPrefabs.Length)]);
-            bulletGo.transform.position = transform.position;
+            bulletGo.transform.position = transform.position + (Vector3)playerToMouse*gun.barrelOffset;
             bulletGo.transform.right = playerToMouse;
-            bulletGo.GetComponent<Rigidbody2D>().velocity = playerToMouse * gun.bulletSpeed;
+            bulletGo.GetComponent<Rigidbody2D>().velocity = updatedVect * gun.bulletSpeed;
             bulletGo.GetComponent<Bullet>().damage = gun.damage;
         }
         
 
+    }
+    void rotateModel()
+    {
+        Vector2 playerToMouse = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+        transform.right = playerToMouse;
+        if(playerToMouse.x < 0)
+        {
+            transform.localScale = new Vector2(1, -1);
+        }
+        else
+        {
+            transform.localScale = new Vector2(1,1);
+        }
+        
+        renderer.transform.localPosition = gun.modelOffset;
     }
 
     public void OnBeat()
@@ -87,6 +107,10 @@ public class GunFirer : MonoBehaviour
         gun = g;
         ammo = g.ammo;
         beatTimer = g.beatPerShot;
-        //update ui
+        if (g.model)
+        {
+            renderer.sprite = g.model;
+        }
+        
     }
 }
