@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7116992027343343929}
   - component: {fileID: 7116992027343343930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7116992028495856163}
   - component: {fileID: 7116992028495856173}
   - component: {fileID: 3001031431586088303}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7116992028545513969}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
