@@ -141,9 +141,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61b9132ad93c854494f14e95a23542a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   health: 100
   maxHealth: 100
   canTakeDmg: 1
+  destroyOnDeath: 1
 --- !u!50 &6470849587970103618
 Rigidbody2D:
   serializedVersion: 4
