@@ -45,11 +45,12 @@ public class GunFirer : MonoBehaviour
     {
         ammo--;
         beatTimer = 0;
-        for(int i = 0; i< gun.bulletsToSpawn; i++)
+        Vector2 playerToMouse = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+        for (int i = 0; i< gun.bulletsToSpawn; i++)
         {
-            Vector2 playerToMouse = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * 5;
-            playerToMouse += RandVect() * gun.spread;
-            playerToMouse.Normalize();
+            Vector2 updatedVect = playerToMouse + RandVect() * gun.spread;
+
+            updatedVect.Normalize();
             GameObject bulletGo = Instantiate(gun.bulletPrefabs[Random.Range(0, gun.bulletPrefabs.Length)]);
             bulletGo.transform.position = transform.position;
             bulletGo.transform.right = playerToMouse;
