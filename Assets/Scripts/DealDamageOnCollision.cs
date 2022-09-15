@@ -10,7 +10,7 @@ public class DealDamageOnCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage,transform.position);
         }
     }
 }

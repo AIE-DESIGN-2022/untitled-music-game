@@ -27,9 +27,13 @@ public class GunFirer : MonoBehaviour
     {
        
         rotateModel();
-        if (Input.GetMouseButtonDown(0) && ammo > 0 && beatTimer >= gun.beatPerShot)
+        if (Input.GetMouseButtonDown(0) && ammo > 0 && beatTimer >= gun.beatPerShot && !reloading)
         {
             nextAction = Actions.Shoot;
+        }
+        if(Input.GetKeyDown(KeyCode.R) && !reloading && ammo != gun.ammo)
+        {
+            nextAction = Actions.Reload;
         }
         if (reloading)
         {
@@ -37,6 +41,7 @@ public class GunFirer : MonoBehaviour
             {
                 beatTimer = gun.beatPerShot;
                 ammo = gun.ammo;
+                reloading=false;
             }
         }
         if (BeatManager.beatFrame)
@@ -90,6 +95,7 @@ public class GunFirer : MonoBehaviour
                 break;
             case Actions.Reload:
                 reloading = true;
+                beatTimer = 0;
                 break;
             case Actions.none:
                 break;

@@ -829,6 +829,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1497421788, guid: cddbe91feb0e4fb49bc8889191b3e616, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 11400000, guid: b4e0785d3dba6c7428ba234e5dc9ffa5, type: 2}
+    - target: {fileID: 1894278341, guid: cddbe91feb0e4fb49bc8889191b3e616, type: 3}
+      propertyPath: iFrameDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4053662873960687059, guid: cddbe91feb0e4fb49bc8889191b3e616, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -876,6 +884,10 @@ PrefabInstance:
     - target: {fileID: 4053662873960687062, guid: cddbe91feb0e4fb49bc8889191b3e616, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053662873960687063, guid: cddbe91feb0e4fb49bc8889191b3e616, type: 3}
+      propertyPath: dmgKB
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cddbe91feb0e4fb49bc8889191b3e616, type: 3}
