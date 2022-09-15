@@ -55,7 +55,7 @@ public class Movement : MonoBehaviour
             gravScale = .2f;
         }
 
-        if(dashResetTimer > dashResetTime && grounded)
+        if(dashResetTimer > dashResetTime && (grounded || onWall!=0))
         {
             canDash = true;
 
