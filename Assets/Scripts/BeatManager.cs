@@ -15,11 +15,9 @@ public class BeatManager : MonoBehaviour
     void Start()
     {
         maxTime = bpm / 60;
-        if (halfBeat)
-        {
-            maxTime = maxTime / 2;
-        }
+        
         maxTime = 1 / maxTime;
+        
     }
 
     public void Pause()
