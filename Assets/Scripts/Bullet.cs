@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float lifeTime;
+    public float damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,10 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+       if(collision.gameObject.GetComponent<Health>() != null)
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+        }
        Destroy(gameObject);
     }
 }
