@@ -14,6 +14,7 @@ public class GunFirer : MonoBehaviour
     public Gun gun;
     [SerializeField]int beatTimer = 0;
     [SerializeField] int ammo = 0;
+    [SerializeField] float reloadRotSpeed;
     [SerializeField]SpriteRenderer renderer;
     bool reloading;
     void Start()
@@ -37,8 +38,14 @@ public class GunFirer : MonoBehaviour
         }
         if (reloading)
         {
+            renderer.transform.localRotation = Quaternion.Euler(
+                renderer.transform.localRotation.eulerAngles.x,
+                renderer.transform.localRotation.eulerAngles.y,
+                renderer.transform.localRotation.eulerAngles.z + reloadRotSpeed*Time.deltaTime
+                );
             if(beatTimer >= gun.beatPerReload)
             {
+                renderer.transform.localRotation = Quaternion.Euler(0,0,0);
                 beatTimer = gun.beatPerShot;
                 ammo = gun.ammo;
                 reloading=false;
