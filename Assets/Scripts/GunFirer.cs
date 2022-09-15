@@ -13,13 +13,18 @@ public class GunFirer : MonoBehaviour
     [SerializeField]Actions nextAction;
     public Gun gun;
     [SerializeField]int beatTimer = 0;
-    [SerializeField] int ammo = 0;
+    public int ammo = 0;
     [SerializeField] float reloadRotSpeed;
     [SerializeField]SpriteRenderer renderer;
+    [SerializeField] AmmoDisp ammoDisp;
+    [SerializeField] AudioSource audio;
+    [SerializeField] float pitchRandm;
+    float pitchDef;
+
     bool reloading;
     void Start()
     {
-       
+        pitchDef = audio.pitch;
         LoadGun(gun);
     }
 
@@ -28,7 +33,7 @@ public class GunFirer : MonoBehaviour
     {
        
         rotateModel();
-        if (Input.GetMouseButtonDown(0) && ammo > 0 && beatTimer >= gun.beatPerShot && !reloading)
+        if (Input.GetMouseButtonDown(0) && beatTimer >= gun.beatPerShot && !reloading)
         {
             nextAction = Actions.Shoot;
         }
@@ -93,16 +98,38 @@ public class GunFirer : MonoBehaviour
         renderer.transform.localPosition = gun.modelOffset;
     }
 
+    void PlaySound(AudioClip s)
+    {
+        if(s == null)
+        {
+            return;
+        }
+        audio.pitch = pitchDef + (Random.value - .5f) * pitchRandm;
+        audio.PlayOneShot(s);
+    }
+
+
+
     public void OnBeat()
     {
         switch (nextAction)
         {
             case Actions.Shoot:
-                Shoot();
+                if(ammo > 0)
+                {
+                    Shoot();
+                    PlaySound(gun.fireSound);
+                }
+                else
+                {
+                    PlaySound(gun.noAmmo);
+                }
+                
                 break;
             case Actions.Reload:
                 reloading = true;
                 beatTimer = 0;
+                PlaySound(gun.reload);
                 break;
             case Actions.none:
                 break;
@@ -124,6 +151,9 @@ public class GunFirer : MonoBehaviour
         {
             renderer.sprite = g.model;
         }
-        
+        if (ammoDisp)
+        {
+            ammoDisp.LoadGun();
+        }
     }
 }
