@@ -11999,7 +11999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9b9d90c1d2a9e40a5b124511e69c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatsToToggle: 1
+  beatsToToggle: 2
   toggleOnHalfBeat: 0
 --- !u!4 &912809277
 Transform:
