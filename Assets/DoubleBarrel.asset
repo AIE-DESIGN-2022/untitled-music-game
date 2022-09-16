@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefabs:
   - {fileID: 7657145536228243212, guid: fdf4b4bfb055745419929423ee9da5c5, type: 3}
-  damage: 5
+  damage: 7
   spread: 0.1
   bulletsToSpawn: 10
   ammo: 2
