@@ -124,8 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7820257341674991693, guid: 77c4cb1808dc2f446abc94fbd3f89a04, type: 3}
   detectionRad: 10
-  roamRange: 2.01
-  moveSpeed: 0.2
+  roamRange: 2
+  moveSpeed: 10
   beatsToShoot: 4
   pLayer:
     serializedVersion: 2
