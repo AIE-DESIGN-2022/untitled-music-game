@@ -15,6 +15,7 @@ public class BeatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sound = GetComponent<AudioSource>();
         maxTime = bpm / 60;
         
         maxTime = 1 / maxTime;

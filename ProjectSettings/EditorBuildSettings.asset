@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: f21f36b46383dcd45a550403ea97428e
+  - enabled: 1
+    path: Assets/JakeTesting.unity
+    guid: 2b5207f039dd60447a6eac998cc56247
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: d3dc3a815495e5b43987b61cf1c45d60
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 08cbfc497ba91224999ab9909c5934cf
   m_configObjects: {}
