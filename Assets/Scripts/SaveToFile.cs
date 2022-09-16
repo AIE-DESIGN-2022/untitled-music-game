@@ -41,4 +41,19 @@ public class SaveToFile : MonoBehaviour
     {
         public int highestLevel;
     }
+    [ContextMenu("Reset")]
+    public void ResetSave()
+    {
+        string dest = Application.persistentDataPath + fileName;
+        FileStream file;
+        if (File.Exists(dest)) file = File.OpenWrite(dest);
+        else file = File.Create(dest);
+
+        SaveData saveDat = new SaveData();
+        saveDat.highestLevel = 1;
+
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(file, saveDat);
+        file.Close();
+    }
 }
