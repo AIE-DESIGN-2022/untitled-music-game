@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 100925124}
   - component: {fileID: 100925123}
   m_Layer: 0
-  m_Name: base platform (12)
+  m_Name: End gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2585,6 +2585,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1935545557, guid: ed66eb872a35e9447937ae44e37fc785, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1935545557, guid: ed66eb872a35e9447937ae44e37fc785, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -9540,7 +9544,7 @@ GameObject:
   - component: {fileID: 1574492834}
   - component: {fileID: 1574492833}
   m_Layer: 0
-  m_Name: Starting platform
+  m_Name: Start gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12075,7 +12079,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh41754
+  m_Name: pb_Mesh115348
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

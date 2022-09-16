@@ -349,6 +349,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5561797401628591638, guid: bd78b4b5d8fdc204ea717bfc37d45d25, type: 3}
   m_PrefabInstance: {fileID: 33803901}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &107661555 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1894278341, guid: cddbe91feb0e4fb49bc8889191b3e616, type: 3}
+  m_PrefabInstance: {fileID: 1357312430}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61b9132ad93c854494f14e95a23542a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &109734193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1216,7 +1227,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh72070
+  m_Name: pb_Mesh116418
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4201,7 +4212,7 @@ GameObject:
   - component: {fileID: 1083608242}
   - component: {fileID: 1083608241}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Start Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4508,7 +4519,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.62, y: -4.9996, z: 0}
   m_LocalScale: {x: 8.4458, y: 2.0096, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1118298406}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4831,11 +4843,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118298401}
   m_LocalRotation: {x: -0, y: -0, z: 0.7066205, w: 0.7075927}
-  m_LocalPosition: {x: -18.62, y: -4.99, z: 0}
-  m_LocalScale: {x: 7.084337, y: 2.0096, z: 1}
+  m_LocalPosition: {x: 0, y: 0.004777151, z: 0}
+  m_LocalScale: {x: 3.525226, y: 0.23794106, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 1083608245}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.921}
 --- !u!1001 &1154822369
 PrefabInstance:
@@ -5354,7 +5366,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-66542
+  m_Name: pb_Mesh116430
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6862,7 +6874,7 @@ GameObject:
   - component: {fileID: 1482890117}
   - component: {fileID: 1482890116}
   m_Layer: 0
-  m_Name: Cube (6)
+  m_Name: End Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7180,6 +7192,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1935545557, guid: ed66eb872a35e9447937ae44e37fc785, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1935545557, guid: ed66eb872a35e9447937ae44e37fc785, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -8183,6 +8199,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 975009110, guid: 0a55e734d437ebd4da42be7d75b29d98, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 107661555}
     - target: {fileID: 201798115078038232, guid: 0a55e734d437ebd4da42be7d75b29d98, type: 3}
       propertyPath: m_Name
       value: UI
