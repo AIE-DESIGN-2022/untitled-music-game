@@ -10,5 +10,6 @@ public class RespawnAtCheckpoint : MonoBehaviour
         transform.position = lastCheckpoint.transform.position;
         Health health = GetComponent<Health>();
         health.health = health.maxHealth;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 }
