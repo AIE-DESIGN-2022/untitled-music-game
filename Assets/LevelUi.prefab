@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2f667d42e8bf243b470efb7b6858f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
 --- !u!222 &2081937236526253058
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -160,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 1, y: -1}
+  m_EffectDistance: {x: 3, y: 3}
   m_UseGraphicAlpha: 1
 --- !u!1 &2081937236866629747
 GameObject:
