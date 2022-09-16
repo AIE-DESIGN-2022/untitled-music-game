@@ -22715,10 +22715,10 @@ PrefabInstance:
     - target: {fileID: 1935545557, guid: ed66eb872a35e9447937ae44e37fc785, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 48b7549919998634a9e071010adfc81c, type: 3}
+      objectReference: {fileID: 8300000, guid: 81e75113fdd8199429a9704580932048, type: 3}
     - target: {fileID: 321620986016003259, guid: ed66eb872a35e9447937ae44e37fc785, type: 3}
       propertyPath: bpm
-      value: 140
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 4991927473043090481, guid: ed66eb872a35e9447937ae44e37fc785, type: 3}
       propertyPath: m_RootOrder
