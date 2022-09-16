@@ -31,8 +31,14 @@ public class Health : MonoBehaviour
         
         
         OnHitEvent.Invoke();
-        if(damageSound)
-        damageSound.Play();
+        if (damageSound)
+        {
+            if (!damageSound.isPlaying)
+            {
+                damageSound.Play();
+            }
+        }
+        
         
         
         if(iFrameDuration > 0)

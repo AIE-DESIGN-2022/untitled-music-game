@@ -51,7 +51,15 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-       CheckGrounding();
+        if(inputDir < 0 || onWall > 0)
+        {
+            transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+        }
+        if (inputDir > 0 || onWall < 0)
+        {
+            transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+        }
+        CheckGrounding();
         if(onWall != 0)
         {
             gravScale = .2f;

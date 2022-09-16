@@ -30,6 +30,7 @@ public class WalkerEnemyMovement : MonoBehaviour
         {
             speed = -speed;
         }
+        GetComponent<SpriteRenderer>().flipX = speed > 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

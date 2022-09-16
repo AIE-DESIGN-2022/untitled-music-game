@@ -14,6 +14,13 @@ public class Cannon : MonoBehaviour
     void Start()
     {
         transform.GetChild(0).right = -angle.normalized;
+        if (angle.x > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+            Vector2 scale = transform.GetChild(0).GetChild(0).transform.localScale;
+            scale.y = -scale.y;
+            transform.GetChild(0).GetChild(0).transform.localScale = scale;
+        }
     }
 
     // Update is called once per frame
