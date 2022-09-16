@@ -493,7 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 10
   moveForce: 20
-  counterForce: 5
+  counterForce: 10
   jumpForce: 300
   jumpBufferTimer: 100
   ground:
