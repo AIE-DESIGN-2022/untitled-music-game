@@ -38,10 +38,11 @@ public class EnemyBird : MonoBehaviour
                     bulletGo.GetComponent<Rigidbody2D>().velocity = (playerCol.transform.position - transform.position).normalized * bulletSpeed;
                     bulletGo.GetComponent<Bullet>().damage = damage;
                 }
-                else if(beatCount == beatsToShoot / 2)
-                {
-                    dest = Random.insideUnitCircle * roamRange + origin;
-                }
+                
+            }
+            if (beatCount == beatsToShoot / 2)
+            {
+                dest = Random.insideUnitCircle * roamRange + origin;
             }
         }
         transform.position = Vector3.MoveTowards(transform.position, dest, moveSpeed * Time.deltaTime);
