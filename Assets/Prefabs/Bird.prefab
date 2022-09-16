@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 8914412221325486250, guid: 0c1e734fa85636743af3bc22c6d99ba8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7820257341674991693, guid: 77c4cb1808dc2f446abc94fbd3f89a04, type: 3}
   detectionRad: 10
   roamRange: 2.01
-  moveSpeed: 0
+  moveSpeed: 0.2
   beatsToShoot: 4
   pLayer:
     serializedVersion: 2
@@ -145,6 +145,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.21669579, y: 0.5681782}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.65620995
