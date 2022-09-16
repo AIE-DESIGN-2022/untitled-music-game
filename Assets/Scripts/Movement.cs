@@ -117,12 +117,11 @@ public class Movement : MonoBehaviour
     {
         StopCoroutine("LockMovement");
         
-        if (GetComponent<Health>().health > 0)
-        {
-            StartCoroutine("LockMovement", duration);
+        
+        StartCoroutine("LockMovement", duration);
 
-            rb.AddForce(((Vector2)transform.position - dir).normalized * dmgKB);
-        }
+        rb.AddForce(((Vector2)transform.position - dir).normalized * dmgKB);
+        
             
     }
     void CheckGrounding()

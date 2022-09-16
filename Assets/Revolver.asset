@@ -19,7 +19,7 @@ MonoBehaviour:
   bulletsToSpawn: 1
   ammo: 6
   model: {fileID: 21300000, guid: 063a294add6c2e142a734edc680cb012, type: 3}
-  beatPerShot: 2
+  beatPerShot: 1
   beatPerReload: 2
   auto: 0
   bulletSpeed: 50
