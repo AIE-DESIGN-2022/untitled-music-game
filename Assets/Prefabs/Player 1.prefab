@@ -499,11 +499,11 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 1
-  gcOffset: {x: 0, y: -0.05}
-  gcRad: 0.49
+  gcOffset: {x: 0, y: -0.08}
+  gcRad: 0.44
   grounded: 1
-  wcOffset: {x: 0.5, y: 0.5}
-  wcSize: {x: 0.05, y: 1}
+  wcOffset: {x: 0.44, y: 0.34}
+  wcSize: {x: 0.05, y: 0.79}
   wallJumpPauseTime: 0.1
   wallJumpForce: 200
   dashForce: 100
@@ -594,6 +594,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0, y: 0.25}
+  m_Size: {x: 0.9, y: 1.5}
   m_Direction: 0
