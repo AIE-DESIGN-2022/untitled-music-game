@@ -21,15 +21,18 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(float damage,Vector2 damageOrigin)
     {
+        if (health <= 0)
+        {
+            OnDeath();
+            return;
+        }
         lastHitFrom = damageOrigin;
+        
         OnHitEvent.Invoke();
         if(damageSound)
         damageSound.Play();
         health -= damage;
-        if(health <= 0)
-        {
-            OnDeath();
-        }
+        
         if(iFrameDuration > 0)
         {
             GetIFrames();

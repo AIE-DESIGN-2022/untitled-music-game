@@ -116,8 +116,14 @@ public class Movement : MonoBehaviour
     public void OnHit(float duration,Vector2 dir)
     {
         StopCoroutine("LockMovement");
-        StartCoroutine("LockMovement",duration);
-        rb.AddForce(((Vector2)transform.position - dir).normalized*dmgKB);
+        
+        if (GetComponent<Health>().health > 0)
+        {
+            StartCoroutine("LockMovement", duration);
+
+            rb.AddForce(((Vector2)transform.position - dir).normalized * dmgKB);
+        }
+            
     }
     void CheckGrounding()
     {
