@@ -5730,6 +5730,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1497421788, guid: cddbe91feb0e4fb49bc8889191b3e616, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 11400000, guid: b4e0785d3dba6c7428ba234e5dc9ffa5, type: 2}
+    - target: {fileID: 1497421788, guid: cddbe91feb0e4fb49bc8889191b3e616, type: 3}
       propertyPath: ammoDisp
       value: 
       objectReference: {fileID: 1776237961}
