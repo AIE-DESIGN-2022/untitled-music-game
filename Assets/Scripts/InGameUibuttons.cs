@@ -40,9 +40,13 @@ public class InGameUibuttons : MonoBehaviour
         OnClose();
         if (!SaveManager.instance) { return; }
         int next = SceneManager.GetActiveScene().buildIndex + 1;
-        if (SceneManager.sceneCountInBuildSettings >= next)
+        if (SceneManager.sceneCountInBuildSettings > next)
         {
             SceneManager.LoadScene(next);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
         }
     }
     public void UpdateButtons()
