@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 public class LevelLoadButton : MonoBehaviour
 {
-    int level;
+    [SerializeField]int level;
     Button button;
     TextMeshProUGUI text;
     // Start is called before the first frame update
@@ -17,7 +17,9 @@ public class LevelLoadButton : MonoBehaviour
         text.text = level.ToString();
         button = GetComponent<Button>();
         //check if level is available
-        if(SaveManager.instance.HighestLevel > level)
+        
+        
+        if(level > SaveManager.instance.HighestLevel)
         {
             button.interactable = false;
         }
