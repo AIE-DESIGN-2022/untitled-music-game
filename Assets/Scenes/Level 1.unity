@@ -5340,6 +5340,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1894278341, guid: cddbe91feb0e4fb49bc8889191b3e616, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4053662873960687059, guid: cddbe91feb0e4fb49bc8889191b3e616, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6294,7 +6298,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh32702
+  m_Name: pb_Mesh34966
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9274,12 +9278,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001002126}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb9b9d90c1d2a9e40a5b124511e69c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatsToToggle: 1
+  beatsToToggle: 2
   toggleOnHalfBeat: 0
 --- !u!1 &2007414720
 GameObject:
@@ -9310,7 +9314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9b9d90c1d2a9e40a5b124511e69c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatsToToggle: 1
+  beatsToToggle: 2
   toggleOnHalfBeat: 0
 --- !u!4 &2007414722
 Transform:
@@ -10134,7 +10138,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh32738
+  m_Name: pb_Mesh35056
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
